@@ -13,22 +13,26 @@ class LinkedList:
         
     def append(self, value):
         new_node = Node(value)
-        if self.head == None:
+        if self.head is None:
             self.head = new_node
             self.tail = new_node
         else:
             self.tail.next = new_node
             self.tail = new_node
         return True
-        
 
-    # WRITE FIND_MIDDLE_NODE METHOD HERE #
-    #                                    #
-    #                                    #
-    #                                    #
-    #                                    #
-    ######################################
 
+    # Return middle node. In case of even number of nodes, return higher index node
+    def find_middle_node(self):
+        middle_node = self.head
+        check_node = self.head
+
+        while True:
+            if check_node is None or check_node.next is None:
+                return middle_node
+
+            check_node = check_node.next.next
+            middle_node = middle_node.next
 
 
 my_linked_list = LinkedList(1)
